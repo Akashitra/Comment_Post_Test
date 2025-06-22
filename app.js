@@ -6,9 +6,13 @@ db();
 const app = express();
 const port = 3002;
 
+
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+const tryrouter = require("./try");
+app.use(tryrouter);
 
 const AdminRouter = require("./App/Router/AdminRouter");
 app.use('/admin',AdminRouter);
